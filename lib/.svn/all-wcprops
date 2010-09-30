@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib
+END
+processing-core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/processing-core.jar
+END
+controlP5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/controlP5.jar
+END
+minim.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/minim.jar
+END
+core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/core.jar
+END
+SQLibrary.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/SQLibrary.jar
+END
+minim-spi.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/minim-spi.jar
+END
+tritonus_aos.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/tritonus_aos.jar
+END
+mp3spi1.9.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/mp3spi1.9.4.jar
+END
+postgresql-8.3-604.jdbc3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/postgresql-8.3-604.jdbc3.jar
+END
+sqlitejdbc-v053-pure.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/sqlitejdbc-v053-pure.jar
+END
+jl1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/jl1.0.jar
+END
+mysql-connector-java-3.1.14-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/mysql-connector-java-3.1.14-bin.jar
+END
+oscP5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/oscP5.jar
+END
+jsminim.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/jsminim.jar
+END
+tritonus_share.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/72/XIMSimpleExperimenter/lib/tritonus_share.jar
+END
+video.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/45/XIMSimpleExperimenter/lib/video.jar
+END

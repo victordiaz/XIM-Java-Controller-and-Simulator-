@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/86/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices
+END
+XIMLargeScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMLargeScreen.java
+END
+XIMSingleScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/67/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMSingleScreen.java
+END
+XIMTile.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/55/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMTile.java
+END
+XIMMachine.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/74/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMMachine.java
+END
+XIMTracking.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/55/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMTracking.java
+END
+XIMFloor.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/55/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMFloor.java
+END
+XIMSound.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/90/XIMSimpleExperimenter/src/edu/lumivi/ximcontroller/devices/XIMSound.java
+END

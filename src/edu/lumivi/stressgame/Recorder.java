@@ -1,0 +1,228 @@
+package edu.lumivi.stressgame;
+
+//import org.sqlite.SQLite;
+
+import java.io.File;
+import java.util.Vector;
+
+import processing.core.PApplet;
+import de.bezier.data.sql.SQLite;
+import edu.lumivi.ximcontroller.applications.XIMApplication;
+import edu.lumivi.ximcontroller.devices.XIMMachine;
+
+public class Recorder extends XIMApplication
+{
+
+	SQLite db;
+
+	int pX, pY; // position X and Y
+	int currentSubject; // subject being recorded
+	int currentSession; // session of the guy
+	Vector<int[]> sessionMovements;
+	
+	boolean recording;
+	boolean verbosing;
+
+	String fileName;
+
+	public Recorder(PApplet p, XIMMachine m, String fileName)
+	{
+		super(p, m);
+		this.fileName = fileName;
+		this.sessionMovements = new Vector<int[]>(); 
+		
+		this.setRecording(true);
+		this.setVerbosing(true);
+
+		this.createDatabase();
+		this.connectDatabase();
+	}
+
+	public boolean isRecording()
+	{
+		return recording;
+	}
+
+	public void setRecording(boolean recording)
+	{
+		this.recording = recording;
+	}
+
+	public boolean isVerbosing()
+	{
+		return verbosing;
+	}
+
+	public void setVerbosing(boolean verbosing)
+	{
+		this.verbosing = verbosing;
+	}
+	
+	public void createDatabase()
+	{
+		File dbFile = new File(fileName);
+
+		if (dbFile.exists() == false)
+		{
+			this.connectDatabase();
+			createTables();
+			db.close();
+		}
+	}
+
+	private void connectDatabase()
+	{
+
+		// connect
+		try
+		{
+			db = new SQLite(this.getApplet(), fileName);
+			db.connect();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public void createTables()
+	{
+		String[] q = new String[4];
+
+		q[0] = "CREATE TABLE SUBJECTS (id_subject INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(50), timestamp datetime default CURRENT_TIMESTAMP);";
+
+		q[1] = "CREATE TABLE SESSIONS (id_session INTEGER PRIMARY KEY AUTOINCREMENT, mode INTEGER, comments char(250), timestamp datetime default CURRENT_TIMESTAMP);";
+
+		q[2] = "CREATE TABLE SCORES (id_score INTEGER PRIMARY KEY AUTOINCREMENT, id_subject INTEGER, id_session INTEGER, score INTEGER, num_targets INTEGER, timestamp datetime default CURRENT_TIMESTAMP );";
+		
+		q[3] = "CREATE TABLE MOVEMENTS (id_movement INTEGER PRIMARY KEY AUTOINCREMENT, id_subject INTEGER, id_session INTEGER, pos_x INTEGER, pos_y INTEGER, timestamp datetime default CURRENT_TIMESTAMP);";
+		
+		for (int i = 0; i < q.length; i++)
+		{
+			db.execute(q[i]);
+		}
+		
+		if (this.isVerbosing())
+		{
+			System.out.println("Tables created in new databse!");
+		}
+		
+	}
+
+	public void close()
+	{
+		db.close();
+	}
+
+	public void insertSubject()
+	{
+		if (this.isRecording())
+		{
+			String query = "INSERT INTO 'SUBJECTS' (name) VALUES('');";
+			db.execute(query);
+			
+			db.query("SELECT last_insert_rowid();");
+			this.currentSubject = db.getInt(1);
+			
+			if (this.isVerbosing())
+			{
+				System.out.println("Current subject: " + this.currentSubject);
+			}
+		}
+	}
+	
+	public void insertSession(int mode)
+	{
+		if (this.isRecording())
+		{
+			String query = "INSERT INTO 'SESSIONS' (mode, comments) VALUES(" + mode + " , '');";
+			db.execute(query);
+			
+			db.query("SELECT last_insert_rowid();");
+			this.currentSession = db.getInt(1);
+			
+			if (this.isVerbosing())
+			{
+				System.out.println("Current session: " + this.currentSession);
+			}
+		}
+	}
+
+	public void insertScore(int score, int numTargets)
+	{
+		if (this.isRecording())
+		{
+			String query = "INSERT INTO 'SCORES' (id_subject, id_session, score, num_targets) VALUES(" + this.currentSubject + ", " + this.currentSession + ", " + score + ", " + numTargets + ");";
+			db.execute(query);
+			
+			if(this.isVerbosing())
+			{
+				System.out.println("Score for subject " + this.currentSubject + " in session " + this.currentSession + " is: " + score + " / " + numTargets);
+			}
+		}
+	}
+	
+	public void recordMovement(int posX, int posY)
+	{
+		if (pX != posX || pY != posY)
+		{
+			int[] movement = new int[2];
+			movement[0] = posX;
+			movement[1] = posY;
+			
+			this.sessionMovements.add(movement);
+			
+			this.pX = posX;
+			this.pY = posY;
+		}
+	}
+	
+	public void insertMovement(int posX, int posY)
+	{
+		if (this.isRecording())
+		{
+				String query = "INSERT INTO 'MOVEMENTS' (id_subject, id_session, pos_x, pos_y) VALUES(" + this.currentSubject + ", " + this.currentSession + ", " + posX + ", " + posY + ");";
+				db.execute(query);
+		}
+	}
+	
+	public void insertMovements()
+	{
+		if (this.isRecording())
+		{
+			for (int[] movement : sessionMovements)
+			{
+				this.insertMovement(movement[0], movement[1]);
+			}
+			
+			if (this.isVerbosing())
+			{
+				System.out.println("Movements for subject " + this.currentSubject + " in session " + this.currentSession + " recorded: " + this.sessionMovements.size());
+			}
+			
+			this.sessionMovements = new Vector<int[]>();
+		}
+	}
+
+	@Override
+	public void execute()
+	{
+		// XIMTracking t = this.getTracking();
+		//
+		// if (t.getTileX() != pX || t.getTileY() != pY)
+		// {
+		// this.updateCoords();
+		// this.insertMovement();
+		// }
+
+	}
+
+	public void keyPressed(char key)
+	{
+		if (key == 'r')
+			;
+		if (key == 's')
+			;
+	}
+
+}

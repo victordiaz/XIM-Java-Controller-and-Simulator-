@@ -1,0 +1,52 @@
+8
+
+dir
+86
+https://ximcontroller.googlecode.com/svn/XIMSimpleExperimenter/.settings
+https://ximcontroller.googlecode.com/svn
+
+
+
+2009-12-11T21:29:01.421513Z
+84
+lucas.lopez
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+2b676f18-dab7-11de-b590-7f2b5bfbe1fd
+
+org.eclipse.jdt.core.prefs
+file
+
+
+
+
+2009-12-12T13:27:55.000000Z
+825bc3d82436f22612cfe7ad2509d6e2
+2009-12-11T21:29:01.421513Z
+84
+lucas.lopez
+
+org.eclipse.jdt.ui.prefs
+file
+
+
+
+
+2009-12-10T22:59:10.000000Z
+fd550727bb46a079c413dce45ee25b8a
+2009-12-03T00:30:11.046352Z
+13
+lucas.lopez
+
